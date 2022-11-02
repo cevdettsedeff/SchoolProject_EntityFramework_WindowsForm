@@ -1,0 +1,16 @@
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\bin\Debug\SchoolProject_EntityFramework_WindowsForm.exe.config
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\bin\Debug\SchoolProject_EntityFramework_WindowsForm.exe
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\bin\Debug\SchoolProject_EntityFramework_WindowsForm.pdb
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\obj\Debug\SchoolProject_EntityFramework_WindowsForm.csproj.AssemblyReference.cache
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\obj\Debug\SchoolProject_EntityFramework_WindowsForm.csproj.SuggestedBindingRedirects.cache
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\obj\Debug\SchoolProject_EntityFramework_WindowsForm.Form1.resources
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\obj\Debug\SchoolProject_EntityFramework_WindowsForm.Properties.Resources.resources
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\obj\Debug\SchoolProject_EntityFramework_WindowsForm.csproj.GenerateResource.cache
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\obj\Debug\SchoolProject_EntityFramework_WindowsForm.csproj.CoreCompileInputs.cache
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\obj\Debug\SchoolProject_EntityFramework_WindowsForm.exe
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\obj\Debug\SchoolProject_EntityFramework_WindowsForm.pdb
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\bin\Debug\EntityFramework.dll
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\bin\Debug\EntityFramework.xml
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Cevsev\Desktop\C# Projelerim\Yeni Projeler\SchoolProject_EntityFramework_WindowsForm\obj\Debug\SchoolProject_EntityFramework_WindowsForm.csproj.CopyComplete

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbSchoolStudentModelStoreContainer" CdmEntityContainer="DbSchoolStudentEntities">
+    <EntitySetMapping Name="TBLGRADES">
+      <EntityTypeMapping TypeName="DbSchoolStudentModel.TBLGRADES">
+        <MappingFragment StoreEntitySet="TBLGRADES">
+          <ScalarProperty Name="GRADEID" ColumnName="GRADEID" />
+          <ScalarProperty Name="STD" ColumnName="STD" />
+          <ScalarProperty Name="LECTURE" ColumnName="LECTURE" />
+          <ScalarProperty Name="EXAM1" ColumnName="EXAM1" />
+          <ScalarProperty Name="EXAM2" ColumnName="EXAM2" />
+          <ScalarProperty Name="EXAM3" ColumnName="EXAM3" />
+          <ScalarProperty Name="AVERAGE" ColumnName="AVERAGE" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLLECTURES">
+      <EntityTypeMapping TypeName="DbSchoolStudentModel.TBLLECTURES">
+        <MappingFragment StoreEntitySet="TBLLECTURES">
+          <ScalarProperty Name="LECTUREID" ColumnName="LECTUREID" />
+          <ScalarProperty Name="LECTURENAME" ColumnName="LECTURENAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLSTUDENT">
+      <EntityTypeMapping TypeName="DbSchoolStudentModel.TBLSTUDENT">
+        <MappingFragment StoreEntitySet="TBLSTUDENT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+          <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GRADELIST" FunctionName="DbSchoolStudentModel.Store.GRADELIST">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DbSchoolStudentModel.GRADELIST_Result">
+          <ScalarProperty Name="GRADEID" ColumnName="GRADEID" />
+          <ScalarProperty Name="NAME_SURNAME" ColumnName="NAME SURNAME" />
+          <ScalarProperty Name="LECTURENAME" ColumnName="LECTURENAME" />
+          <ScalarProperty Name="EXAM1" ColumnName="EXAM1" />
+          <ScalarProperty Name="EXAM2" ColumnName="EXAM2" />
+          <ScalarProperty Name="EXAM3" ColumnName="EXAM3" />
+          <ScalarProperty Name="AVERAGE" ColumnName="AVERAGE" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

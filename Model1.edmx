@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DbSchoolStudentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBLGRADES">
+          <Key>
+            <PropertyRef Name="GRADEID" />
+          </Key>
+          <Property Name="GRADEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="STD" Type="int" />
+          <Property Name="LECTURE" Type="int" />
+          <Property Name="EXAM1" Type="smallint" />
+          <Property Name="EXAM2" Type="smallint" />
+          <Property Name="EXAM3" Type="smallint" />
+          <Property Name="AVERAGE" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="STATE" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLLECTURES">
+          <Key>
+            <PropertyRef Name="LECTUREID" />
+          </Key>
+          <Property Name="LECTUREID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LECTURENAME" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLSTUDENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" />
+          <Property Name="SURNAME" Type="varchar" MaxLength="20" />
+          <Property Name="PHOTO" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_TBLGRADES_TBLLECTURES">
+          <End Role="TBLLECTURES" Type="Self.TBLLECTURES" Multiplicity="0..1" />
+          <End Role="TBLGRADES" Type="Self.TBLGRADES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLLECTURES">
+              <PropertyRef Name="LECTUREID" />
+            </Principal>
+            <Dependent Role="TBLGRADES">
+              <PropertyRef Name="LECTURE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLGRADES_TBLSTUDENT1">
+          <End Role="TBLSTUDENT" Type="Self.TBLSTUDENT" Multiplicity="0..1" />
+          <End Role="TBLGRADES" Type="Self.TBLGRADES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLSTUDENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLGRADES">
+              <PropertyRef Name="STD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GRADELIST" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="DbSchoolStudentModelStoreContainer">
+          <EntitySet Name="TBLGRADES" EntityType="Self.TBLGRADES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLLECTURES" EntityType="Self.TBLLECTURES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLSTUDENT" EntityType="Self.TBLSTUDENT" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBLGRADES_TBLLECTURES" Association="Self.FK_TBLGRADES_TBLLECTURES">
+            <End Role="TBLLECTURES" EntitySet="TBLLECTURES" />
+            <End Role="TBLGRADES" EntitySet="TBLGRADES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLGRADES_TBLSTUDENT1" Association="Self.FK_TBLGRADES_TBLSTUDENT1">
+            <End Role="TBLSTUDENT" EntitySet="TBLSTUDENT" />
+            <End Role="TBLGRADES" EntitySet="TBLGRADES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbSchoolStudentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBLGRADES">
+          <Key>
+            <PropertyRef Name="GRADEID" />
+          </Key>
+          <Property Name="GRADEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="STD" Type="Int32" />
+          <Property Name="LECTURE" Type="Int32" />
+          <Property Name="EXAM1" Type="Int16" />
+          <Property Name="EXAM2" Type="Int16" />
+          <Property Name="EXAM3" Type="Int16" />
+          <Property Name="AVERAGE" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="STATE" Type="Boolean" />
+          <NavigationProperty Name="TBLLECTURES" Relationship="Self.FK_TBLGRADES_TBLLECTURES" FromRole="TBLGRADES" ToRole="TBLLECTURES" />
+          <NavigationProperty Name="TBLSTUDENT" Relationship="Self.FK_TBLGRADES_TBLSTUDENT1" FromRole="TBLGRADES" ToRole="TBLSTUDENT" />
+        </EntityType>
+        <EntityType Name="TBLLECTURES">
+          <Key>
+            <PropertyRef Name="LECTUREID" />
+          </Key>
+          <Property Name="LECTUREID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LECTURENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLGRADES" Relationship="Self.FK_TBLGRADES_TBLLECTURES" FromRole="TBLLECTURES" ToRole="TBLGRADES" />
+        </EntityType>
+        <EntityType Name="TBLSTUDENT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SURNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PHOTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLGRADES" Relationship="Self.FK_TBLGRADES_TBLSTUDENT1" FromRole="TBLSTUDENT" ToRole="TBLGRADES" />
+        </EntityType>
+        <Association Name="FK_TBLGRADES_TBLLECTURES">
+          <End Role="TBLLECTURES" Type="Self.TBLLECTURES" Multiplicity="0..1" />
+          <End Role="TBLGRADES" Type="Self.TBLGRADES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLLECTURES">
+              <PropertyRef Name="LECTUREID" />
+            </Principal>
+            <Dependent Role="TBLGRADES">
+              <PropertyRef Name="LECTURE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLGRADES_TBLSTUDENT1">
+          <End Role="TBLSTUDENT" Type="Self.TBLSTUDENT" Multiplicity="0..1" />
+          <End Role="TBLGRADES" Type="Self.TBLGRADES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLSTUDENT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBLGRADES">
+              <PropertyRef Name="STD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbSchoolStudentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBLGRADES" EntityType="Self.TBLGRADES" />
+          <EntitySet Name="TBLLECTURES" EntityType="Self.TBLLECTURES" />
+          <EntitySet Name="TBLSTUDENT" EntityType="Self.TBLSTUDENT" />
+          <AssociationSet Name="FK_TBLGRADES_TBLLECTURES" Association="Self.FK_TBLGRADES_TBLLECTURES">
+            <End Role="TBLLECTURES" EntitySet="TBLLECTURES" />
+            <End Role="TBLGRADES" EntitySet="TBLGRADES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLGRADES_TBLSTUDENT1" Association="Self.FK_TBLGRADES_TBLSTUDENT1">
+            <End Role="TBLSTUDENT" EntitySet="TBLSTUDENT" />
+            <End Role="TBLGRADES" EntitySet="TBLGRADES" />
+          </AssociationSet>
+          <FunctionImport Name="GRADELIST" ReturnType="Collection(DbSchoolStudentModel.GRADELIST_Result)" />
+        </EntityContainer>
+        <ComplexType Name="GRADELIST_Result">
+          <Property Type="Int32" Name="GRADEID" Nullable="false" />
+          <Property Type="String" Name="NAME_SURNAME" Nullable="true" MaxLength="41" />
+          <Property Type="String" Name="LECTURENAME" Nullable="true" MaxLength="50" />
+          <Property Type="Int16" Name="EXAM1" Nullable="true" />
+          <Property Type="Int16" Name="EXAM2" Nullable="true" />
+          <Property Type="Int16" Name="EXAM3" Nullable="true" />
+          <Property Type="Decimal" Name="AVERAGE" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="Boolean" Name="STATE" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbSchoolStudentModelStoreContainer" CdmEntityContainer="DbSchoolStudentEntities">
+          <EntitySetMapping Name="TBLGRADES">
+            <EntityTypeMapping TypeName="DbSchoolStudentModel.TBLGRADES">
+              <MappingFragment StoreEntitySet="TBLGRADES">
+                <ScalarProperty Name="GRADEID" ColumnName="GRADEID" />
+                <ScalarProperty Name="STD" ColumnName="STD" />
+                <ScalarProperty Name="LECTURE" ColumnName="LECTURE" />
+                <ScalarProperty Name="EXAM1" ColumnName="EXAM1" />
+                <ScalarProperty Name="EXAM2" ColumnName="EXAM2" />
+                <ScalarProperty Name="EXAM3" ColumnName="EXAM3" />
+                <ScalarProperty Name="AVERAGE" ColumnName="AVERAGE" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLLECTURES">
+            <EntityTypeMapping TypeName="DbSchoolStudentModel.TBLLECTURES">
+              <MappingFragment StoreEntitySet="TBLLECTURES">
+                <ScalarProperty Name="LECTUREID" ColumnName="LECTUREID" />
+                <ScalarProperty Name="LECTURENAME" ColumnName="LECTURENAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLSTUDENT">
+            <EntityTypeMapping TypeName="DbSchoolStudentModel.TBLSTUDENT">
+              <MappingFragment StoreEntitySet="TBLSTUDENT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+                <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GRADELIST" FunctionName="DbSchoolStudentModel.Store.GRADELIST">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DbSchoolStudentModel.GRADELIST_Result">
+                <ScalarProperty Name="GRADEID" ColumnName="GRADEID" />
+                <ScalarProperty Name="NAME_SURNAME" ColumnName="NAME SURNAME" />
+                <ScalarProperty Name="LECTURENAME" ColumnName="LECTURENAME" />
+                <ScalarProperty Name="EXAM1" ColumnName="EXAM1" />
+                <ScalarProperty Name="EXAM2" ColumnName="EXAM2" />
+                <ScalarProperty Name="EXAM3" ColumnName="EXAM3" />
+                <ScalarProperty Name="AVERAGE" ColumnName="AVERAGE" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
